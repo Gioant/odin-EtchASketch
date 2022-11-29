@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Akronim&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 
 * {
     margin: 0;
@@ -11,12 +12,12 @@
 body {
     background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
     min-height: 100vh;
-    font-family: 'Pacifico', cursive;
+    /* font-family: 'Pacifico', cursive; */
 }
 
 #top {
     margin: 0 auto;
-    margin-top: 3%;
+    margin-top: 50px;
     width: 70%;
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
@@ -30,4 +31,21 @@ body {
     font-family: 'Akronim', cursive;
     font-size: 70px;
     color: #E9C64B;
+}
+
+#left-Panel {
+    margin: 0 auto;
+    display: flex;
+    width: 70%;
+    background-color: #e63946;
+}
+
+#Panel legend {
+    text-align: center;
+    font-family: 'Lobster', cursive;
+}
+
+#cat1 {
+    border-style: ridge;
+    /* box-shadow: 0.2em 0.2em 0.5em rgb(0 0 0 / 80%); */
 }
