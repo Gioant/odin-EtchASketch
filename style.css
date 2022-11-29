@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Nabla&family=Pacifico&display=swap');
 * {
     margin: 0;
     padding: 0;
@@ -8,4 +9,17 @@
 body {
     background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
     min-height: 100vh;
+}
+
+#top {
+    margin: 0 auto;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    background-color: #e63946;
+}
+
+#top-h1 {
+    font-family:  'Pacifico', cursive;
+    font-size: 70px;
 }
