@@ -23,14 +23,31 @@
     <div id="left-Panel">
         <form id="Panel">
             <fieldset id="cat1">
-                <legend>MOUSE OPTIONS</legend>
+                <legend>SETTINGS</legend>
                 <div class="ui large buttons">
                     <!-- <button class="ui button active">Hover</button> -->
-                    <button class="circular ui icon active button">Hover</button>
+                    <button id="hover" class="circular ui icon active button">Hover</button>
                     <div class="or"></div>
-                    <button class="ui button">Click</button>
+                    <button id="click" class="ui button">Click</button>
                 </div>
             </fieldset>
+            <!-- <fieldset id="canvas-options">
+                <legend>Canvas Options</legend>
+                <label for="grid-color" title="Select Color">
+                    <input type="color" id="grid-color" value="#000000">
+                    Grid Color
+                    <input type="checkbox" id="grid-show" title="Grid On/Off" checked>
+                </label>
+                <label for="canvas-color" title="Select Color">
+                    <input type="color" id="canvas-color" value="#ffffff">
+                    Canvas Color
+                </label>
+                <button id="clear" title="Clear Canvas" type="button">Clear</button>
+                <label for="canvas-size" title="Change Canvas Size">
+                    <input type="range" id="canvas-size" name="paint-type" value="16" min="8" max="96" step="8">
+                </label>
+                <div id="range">16 × 16</div>
+            </fieldset> -->
         </form>
     </div>
     <!-- Right Panel-->
