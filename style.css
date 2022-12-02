@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Akronim&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alexandria:wght@800&display=swap');
 
 * {
     margin: 0;
@@ -42,7 +42,7 @@ body {
 
 #Panel legend {
     text-align: center;
-    font-family: 'Lobster', cursive;
+    font-family: 'Alexandria', sans-serif;
 }
 
 #cat1 {
