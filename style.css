@@ -40,6 +40,7 @@ body {
 }
 
 #panel{
+    text-align: center;
     margin-left: 125px;
     width: 300px;
     border: 3px solid black;
@@ -51,11 +52,13 @@ h4 {
     font-size: 1.25em;
     padding: 15px 0;
     color: #E9C64B;
-    background-color: purple;
+    background-color: #4200D0;
 }
 
-p {
+#sizeLbl {
     text-align: center;
+    padding-bottom: 10px;
+    font-size: 18px;
 }
 
 #sketchPad{
