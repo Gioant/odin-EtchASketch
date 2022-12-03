@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Akronim&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Alexandria:wght@800&display=swap');
 
@@ -12,7 +12,6 @@
 body {
     background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
     min-height: 100vh;
-    /* font-family: 'Pacifico', cursive; */
 }
 
 #top {
@@ -45,7 +44,7 @@ body {
     font-family: 'Alexandria', sans-serif;
 }
 
-#cat1 {
-    border-style: ridge;
-    /* box-shadow: 0.2em 0.2em 0.5em rgb(0 0 0 / 80%); */
+#sketchPad{
+    width: 750px;
+    height: 750px;
 }
