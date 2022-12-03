@@ -32,12 +32,13 @@ body {
     color: #E9C64B;
 }
 
-#mid {
+/* #mid {
     margin: 0 auto;
     display: flex;
+    justify-content: center;
     width: 70%;
     background-color: #F60909;
-}
+} */
 
 #panel{
     text-align: center;
@@ -68,7 +69,13 @@ h4 {
 }
 
 #sketchPad{
+    display: grid;
+    overflow: hidden;
     margin: 0 auto;
-    width: 750px;
+    width: 70%;
     height: 750px;
+    border-left: 10em solid #F60909;
+    border-right: 10em solid #F60909;
+    background-color: bisque;
 }
+
