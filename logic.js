@@ -1,5 +1,20 @@
 //get container of grid
 const container = document.getElementById("sketchPad");
+const slider = document.getElementById("slider1");
+const p = document.getElementById("sizeLbl");
+
+//slider logic
+$('.ui.slider').slider({
+    min: 5,
+    max: 100,
+    start: 5,
+    step: 5,
+    smooth: true,
+    onChange: function (value) {
+        p.innerHTML = value + "x" + value;
+        createGrid(value);
+    }
+});
 
 
 //apply some style to it
@@ -22,3 +37,5 @@ function createGrid(value) {
         container.appendChild(square);
     }
 }
+
+createGrid()
