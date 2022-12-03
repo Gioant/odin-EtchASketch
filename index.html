@@ -19,8 +19,8 @@
         <h1 id="top-h1">ETCH-A-SKETCH</h1>
     </header>
     
-    <!-- Left Panel -->
-    <div id="left-Panel">
+
+    <div id="mid">
         <div id="panel">
         <h4>Mouse Settings</h4>
         <div class="ui big buttons">
@@ -30,22 +30,15 @@
         </div>
 
         <h4>Change Size</h4>
-        <div class="ui violet large slider" id="slider"></div>
-        <p id="sizeLbl">5</p>
+        <div class="ui violet slider" id="slider1"></div>
+        <p id="sizeLbl">5x5</p>
         </div>
-    </div>
-    <!-- Right Panel-->
+
+        <!-- Right Panel-->
     <div id="sketchPad"></div>
+    </div>
 
     </main>
     <script src="./logic.js"></script>
-    <script>
-$('.ui.slider').slider({
-    min: 5,
-    max: 100,
-    start: 5,
-    step: 5,
-    smooth: true });
-    </script>
 </body>
 </html>
