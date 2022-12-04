@@ -1,50 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Etch-A-Sketch</title>
     <link rel="icon" type="image/x-icon" href="./favicon.ico">
-    <link href="https://cdn.jsdelivr.net/gh/hung1001/font-awesome-pro-v6@44659d9/css/all.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/gh/hung1001/font-awesome-pro-v6@44659d9/css/all.css" rel="stylesheet"
+        type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.0/dist/semantic.min.css">
     <script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.0/dist/semantic.min.js"></script>
-    <link rel="stylesheet" href="./style.css"/>
+    <link rel="stylesheet" href="./style.css" />
 </head>
-<body>
-    <!-- main container-->
-    <main id="Parent">
-    <header id="top">
-        <h1 id="top-h1">ETCH-A-SKETCH</h1>
-    </header>
-    
 
-    <!-- <div id="mid"> -->
-        <!-- <div id="panel">
-        <h4>Mouse Settings</h4>
-        <div class="ui big buttons">
-            <button class="ui brown button">Hover</button>
-            <div class="or"></div>
-            <button class="ui blue button">Click</button>
+<body>
+    <main id="Parent">
+        <div id="panel">
+            <h4>Mouse Settings</h4>
+            <div class="ui big buttons" id="option1">
+                <button class="ui brown button">Hover</button>
+                <div class="or"></div>
+                <button class="ui blue button">Click</button>
+            </div>
+
+            <h4>Change Size</h4>
+            <div class="slidecontainer">
+                <input type="range" min="16" max="80" step="16" value="16" class="slider" id="grid-range">
+                <p id="value">5x5</p>
+            </div>
         </div>
 
-        <h4>Change Size</h4>
-        <div class="ui violet slider" id="slider1"></div>
-        <p id="sizeLbl">5x5</p>
-        </div> -->
+        <div id="space"></div>
 
-        <!-- Right Panel-->
-    <div id="sketchPad"></div>
-    <!-- </div> -->
-
-    <div id="bottom">
-        <h4>Change Size</h4>
-        <div class="ui violet slider" id="slider1"></div>
-        <p id="sizeLbl">5x5</p>
-    </div>
-
+        <div id="sketchPad">
+            <h1>ETCH-A-SKETCH</h1>
+        </div>
     </main>
     <script src="./logic.js"></script>
 </body>
+
 </html>
