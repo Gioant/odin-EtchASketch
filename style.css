@@ -14,39 +14,30 @@ body {
     min-height: 100vh;
 }
 
-#top {
-    margin: 0 auto;
-    margin-top: 50px;
-    width: 70%;
-    border-top-left-radius: 50px;
-    border-top-right-radius: 50px;
-    display: flex;
-    justify-content: center;
-    background-color: #F60909;
+#Parent {
+margin-top: 75px;
+display: flex;
+justify-content: center;
 }
 
-#top-h1 {
-    padding-top: 15px;
+
+h1 {
     font-family: 'Akronim', cursive;
     font-size: 70px;
     color: #E9C64B;
+    padding: 10px;
+    background-color: #F60909;
 }
 
-/* #mid {
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    width: 70%;
-    background-color: #F60909;
-} */
 
 #panel{
+    display: flex;
+    flex-direction: column;
     text-align: center;
-    margin-left: 125px;
-    width: 300px;
     height: max-content;
-    border: 3px solid black;
+    border: 1px solid black;
     border-radius: 5px;
+    background-color: #F60909;
 }
 
 h4 {
@@ -57,25 +48,17 @@ h4 {
     background-color: #6F0098;
 }
 
-#slider1 {
-    margin: 0 auto;
-    width: 90%;
+#option1 {
+    padding: 0 10px 0 10px;
 }
 
-#sizeLbl {
+#space {
+    width: 200px;
+    background-color: #F60909;
+}
+
+#sketchPad {
+    width: 50%;
     text-align: center;
-    padding-bottom: 10px;
-    font-size: 18px;
-}
-
-#sketchPad{
-    display: grid;
-    overflow: hidden;
-    margin: 0 auto;
-    width: 70%;
-    height: 750px;
-    border-left: 10em solid #F60909;
-    border-right: 10em solid #F60909;
-    background-color: bisque;
 }
 
