@@ -22,6 +22,7 @@ justify-content: center;
 
 
 h1 {
+    margin: 0;
     font-family: 'Akronim', cursive;
     font-size: 70px;
     color: #E9C64B;
@@ -60,5 +61,15 @@ h4 {
 #sketchPad {
     width: 50%;
     text-align: center;
+}
+
+#canvas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 250px;
+    width: 250px;
+    border: 1px solid black;
+    background-size: 100%;
 }
 
