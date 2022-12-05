@@ -53,8 +53,8 @@ h4 {
     padding: 0 10px 0 10px;
 }
 
-#space {
-    width: 200px;
+.space {
+    width: 100px;
     background-color: #F60909;
 }
 
@@ -73,3 +73,8 @@ h4 {
     background-size: 100%;
 }
 
+
+#knobs {
+    height: 20%;
+    background-color: #F60909;
+}
