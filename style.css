@@ -67,16 +67,19 @@ h4 {
     flex-direction: column;
     width: 50%;
     text-align: center;
+    background-color: antiquewhite;
 }
 
 #canvas {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: grid;
     height: 100%;
     width: 100%;
     border: 1px solid black;
-    background-size: 100%;
+}
+
+.boxes {
+    background-color: white;
+    border: 1px solid black;
 }
 
 
