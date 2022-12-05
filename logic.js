@@ -8,6 +8,7 @@ startingGrid();
 
 //add event listener for slider on change
 slider.addEventListener('change', () => {
+    //save value of input  slider
     const value = slider.value;
 
     //change p element to show correct value
@@ -17,14 +18,19 @@ slider.addEventListener('change', () => {
     resizeGrid(value);
 });
 
+//starting grid
+function startingGrid() {
+    //call function to create grid size of 5
+    createGrid(5);
+}
 
 //function to create grid
 function createGrid(value) {
     const size = value * value;
 
     //first style the container using product of value
-    grid.style.gridTemplateRows = "repeat(value,1fr)";
-    grid.style.gridTemplateColumns = "repeat(value,1fr)";
+    grid.style.gridTemplateRows = `repeat(${value}, 1fr)`;
+    grid.style.gridTemplateColumns = `repeat(${value}, 1fr)`;
 
     //loop until we reach grid size
     for (let i = 0; i < size; i++) {
@@ -37,7 +43,7 @@ function createGrid(value) {
 
 
 //function to resize grid based on value of slider
-function resizeGrid(value){
+function resizeGrid(value) {
     let boxes = grid.querySelectorAll("div");
     //for each box, remove it
     boxes.forEach(box => box.remove());
