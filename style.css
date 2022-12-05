@@ -59,6 +59,8 @@ h4 {
 }
 
 #sketchPad {
+    display: flex;
+    flex-direction: column;
     width: 50%;
     text-align: center;
 }
@@ -75,6 +77,6 @@ h4 {
 
 
 #knobs {
-    height: 20%;
+    height: 25%;
     background-color: #F60909;
 }
