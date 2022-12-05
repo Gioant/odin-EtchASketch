@@ -1,5 +1,5 @@
 //get necessary elements from page
-const container = document.getElementById("sketchPad");
+const grid = document.getElementById("canvas");
 const slider = document.getElementById("slider");
 const p = document.getElementById("value");
 
@@ -14,3 +14,17 @@ slider.addEventListener('change', () => {
     //call function to ReSize grid
 
 });
+
+
+function createGrid() {
+
+    for (let i = 0; i < 25; i++) {
+        const cell = document.createElement('div');
+        cell.className = "boxes";
+        cell.style.gridTemplateColumns = "repeat(value,1fr)";
+        cell.style.gridTemplateRows = "repeat(value,1fr)";
+        grid.appendChild(cell);
+    }
+}
+
+createGrid();
