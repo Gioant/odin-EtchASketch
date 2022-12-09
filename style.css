@@ -74,13 +74,14 @@ h4 {
     display: grid;
     height: 700px;
     width: 1020px;
-    border: 1px solid black;
+    border: 2px solid #F8F1F1;
 }
 
 
 .boxes {
     background-color: white;
-    border: 1px solid black;
+    border: 1px solid;
+    border-color: rgba(0, 0, 0, 0.03);
 }
 
 
