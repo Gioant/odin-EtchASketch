@@ -66,14 +66,24 @@ h4 {
 }
 
 .btn-color {
+    background-color: #E6E1E3;
     width: 100px;
     height: 75px;
-    border: 2px solid #ffffff
+    border: 3px solid #0750A4;
+    border-radius: 10px;
+}
+
+.btn-color:hover {
+    transform: scale(1.15);
 }
 
 .btn-color img {
     width: 45px;
     aspect-ratio: 1/1;
+}
+
+#custom {
+    padding: 12px 15px 12px 15px;
 }
 
 .space {
