@@ -35,7 +35,8 @@ h1 {
 
 
 #panel{
-    margin-top: 110px;
+    margin-top: 123px;
+    width: 250px;
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -55,6 +56,24 @@ h4 {
 
 #option1 {
     padding: 0 10px 0 10px;
+}
+
+#colors-box {
+    display: grid; 
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 5px; 
+    margin-left: 10px
+}
+
+.btn-color {
+    width: 100px;
+    height: 75px;
+    border: 2px solid #ffffff
+}
+
+.btn-color img {
+    width: 45px;
+    aspect-ratio: 1/1;
 }
 
 .space {
