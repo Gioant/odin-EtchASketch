@@ -2,6 +2,7 @@
 const grid = document.getElementById("canvas");
 const slider = document.getElementById("slider");
 const p = document.getElementById("value");
+const body = document.querySelector("body");
 
 //buttons
 const btnHover = document.getElementById("btn_hover");
@@ -12,6 +13,7 @@ const rainbowBtn = document.getElementById("rainbow");
 const fadeBtn = document.getElementById("fade");
 const customInput = document.getElementById("custom");
 const clearBtn = document.getElementById("clear");
+
 
 //call function to create grid initially
 startingGrid();
@@ -30,16 +32,18 @@ slider.addEventListener('change', () => {
 });
 
 
-//to store result of which btn was clicked
-let btnState;
 
-//add event listener to both buttons and store a result to btnState
-btnHover.addEventListener("click", () =>{
-    btnState = "Hover";
+//add event listener to both buttons 
+btnHover.addEventListener("click", () => {
+    btnHover.classList.toggle("active");
+    btnClick.classList.remove("active");
+    body.classList.remove("crosshair");
 });
 
 btnClick.addEventListener("click", () => {
-    btnState = "Click";
+    btnClick.classList.toggle("active");
+    btnHover.classList.remove("active");
+    body.classList.add("crosshair");
 });
 
 
@@ -77,12 +81,3 @@ function resizeGrid(value) {
     createGrid(value);
 }
 
-
-//function to check which btn was clicked and add appropriate event listeners
-function checker(choice){
-    if(btnState === "Hover"){
-        //mouse over event
-    } else if (btnState === "Click"){
-        //click event
-    }
-}
