@@ -7,13 +7,15 @@ const body = document.querySelector("body");
 //buttons
 const btnHover = document.getElementById("btn_hover");
 const btnClick = document.getElementById("btn_click");
-const warmBtn = document.getElementById("warm");
-const coldBtn = document.getElementById("cold");
-const rainbowBtn = document.getElementById("rainbow");
-const fadeBtn = document.getElementById("fade");
-const customInput = document.getElementById("custom");
-const clearBtn = document.getElementById("clear");
+// const warmBtn = document.getElementById("warm");
+// const coldBtn = document.getElementById("cold");
+// const rainbowBtn = document.getElementById("rainbow");
+// const fadeBtn = document.getElementById("fade");
+const customColor = document.getElementById("custom");
+// const clearBtn = document.getElementById("clear");
 
+//get all the boxes
+const boxes = grid.querySelectorAll(".boxes");
 
 //call function to create grid initially
 startingGrid();
@@ -31,19 +33,17 @@ slider.addEventListener('change', () => {
     resizeGrid(value);
 });
 
-
-
-//add event listener to both buttons 
-btnHover.addEventListener("click", () => {
-    btnHover.classList.toggle("active");
+btnHover.addEventListener('click', () => {
     btnClick.classList.remove("active");
-    body.classList.remove("crosshair");
+    btnHover.classList.add("active");
+    setColorEvent('mouseover');
 });
 
-btnClick.addEventListener("click", () => {
-    btnClick.classList.toggle("active");
+
+btnClick.addEventListener('click', () => {
     btnHover.classList.remove("active");
-    body.classList.add("crosshair");
+    btnClick.classList.add("active");
+    setColorEvent('click');
 });
 
 
@@ -79,5 +79,57 @@ function resizeGrid(value) {
 
     //call function to create grid with value
     createGrid(value);
+}
+
+//function to change color of grid
+function setColorEvent(eventType) {
+    // Get all the btn-color buttons
+    const colorButtons = document.querySelectorAll('.btn-color');
+
+
+    // Add event listener to each btn-color button
+    colorButtons.forEach(button => {
+        button.addEventListener(eventType, event => {
+            // Get the clicked button's id
+            const clickedButtonId = event.target.id;
+
+            // Set the background color of the .boxes based on the clicked button's id
+            switch (clickedButtonId) {
+                case 'warm':
+                    // Set background color to warm color
+                    break;
+                case 'cold':
+                    // Set background color to cold color
+                    break;
+                case 'rainbow':
+                    // Set background color to rainbow colors
+                    break;
+                case 'fade':
+                    // Set background color to faded colors
+                    break;
+                case 'erase':
+                    // Set background color to default
+                    break;
+                default:
+                    //add event listener on input change for customColor
+                    customColor.addEventListener('input', event => {
+                        // Get the chosen color
+                        const chosenColor = event.target.value;
+
+                        // Get all the .boxes elements
+                        const boxes = grid.querySelectorAll('div');
+
+                        // Set the background color of the .boxes elements to the chosen color
+                        boxes.forEach(box => {
+                            box.addEventListener(eventType, () => {
+                                // Set the background color of the .boxes element to the chosen color
+                                box.style.backgroundColor = chosenColor;
+                            });
+                        });
+                    });
+                    break;
+            }
+        });
+    });
 }
 
