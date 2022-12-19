@@ -86,6 +86,9 @@ function setColorEvent(eventType) {
     // Get all the btn-color buttons
     const colorButtons = document.querySelectorAll('.btn-color');
 
+    // Remove event listeners from all the .boxes elements
+    const boxes = $('.boxes');
+    boxes.off(eventType);
 
     // Add event listener to each btn-color button
     colorButtons.forEach(button => {
@@ -96,16 +99,54 @@ function setColorEvent(eventType) {
             // Set the background color of the .boxes based on the clicked button's id
             switch (clickedButtonId) {
                 case 'warm':
-                    // Set background color to warm color
+                    boxes.each(function (i) {
+                        $(this).on(eventType, function () {
+                            const h = Math.random() * 60 // to generate colors from 0 - 60 degrees inclusive (red-yellow)
+                            $(this).css('background-color', 'hsl(' + Math.random() * 60 + ', 100%, 50%)');
+                        });
+                    });
                     break;
                 case 'cold':
-                    // Set background color to cold color
+                    boxes.each(function (i) {
+                        $(this).on(eventType, function () {
+                            const h = 210;
+                            const s = Math.max(70, Math.floor(Math.random() * 100));
+                            const l = Math.floor(Math.random() * (75 - 50 + 1) + 50);
+                            $(this).css('background-color', 'hsl(' + h + ', ' + s + '%, ' + l + '%)');
+                        });
+                    });
                     break;
                 case 'rainbow':
-                    // Set background color to rainbow colors
+                    boxes.each(function (i) {
+                        $(this).on(eventType, function () {
+                            //logic formula to generate a random number for rainbow
+                            const red = Math.floor(Math.random() * 256);
+                            const green = Math.floor(Math.random() * 256);
+                            const blue = Math.floor(Math.random() * 256);
+                            $(this).css('background-color', 'rgb(' + red + ', ' + green + ', ' + blue + ')');
+                        });
+                    });
                     break;
                 case 'fade':
-                    // Set background color to faded colors
+                    boxes.each(function (i) {
+                        $(this).on(eventType, function () {
+                            let box = boxes[i]; // Access the DOM element itself
+                            let backgroundColor = box.style.backgroundColor;
+                            if (backgroundColor.startsWith('rgb')) {
+                                $(this).css('background-color', 'hsl(0, 0%, 100%)');
+                            } else {
+                                // If the box has a background color, gradually add 10% black to it
+
+                                let h = parseInt(colorComponents[0]);
+                                let s = parseInt(colorComponents[1]);
+                                let l = parseInt(colorComponents[2]) - 10;
+                                $(box).css('background-color', 'hsl(' + h + ', ' + s + '%, ' + l + '%)');
+                            }
+                        });
+                    });
+
+
+
                     break;
                 case 'erase':
                     // Set background color to default
