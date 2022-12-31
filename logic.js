@@ -35,14 +35,20 @@ slider.addEventListener('change', () => {
 
 btnHover.addEventListener('click', () => {
     btnClick.classList.remove("active");
+    btnClick.style.border = "none";
     btnHover.classList.add("active");
+    btnHover.style.border = '3px solid greenyellow';
+    btnHover.style.borderRadius = '8px';
     setColorEvent('mouseover');
 });
 
 
 btnClick.addEventListener('click', () => {
     btnHover.classList.remove("active");
+    btnHover.style.border = "none";
     btnClick.classList.add("active");
+    btnClick.style.border = '3px solid greenyellow';
+    btnClick.style.borderRadius = '8px';
     setColorEvent('click');
 });
 
@@ -99,78 +105,96 @@ function setColorEvent(eventType) {
             // Set the background color of the .boxes based on the clicked button's id
             switch (clickedButtonId) {
                 case 'warm':
-                    boxes.each(function (i) {
-                        $(this).on(eventType, function () {
-                            const h = Math.random() * 60 // to generate colors from 0 - 60 degrees inclusive (red-yellow)
-                            $(this).css('background-color', 'hsl(' + Math.random() * 60 + ', 100%, 50%)');
-                        });
-                    });
+                    setWarmColor(boxes, eventType);
                     break;
                 case 'cold':
-                    boxes.each(function (i) {
-                        $(this).on(eventType, function () {
-                            const h = 210;
-                            const s = Math.max(70, Math.floor(Math.random() * 100));
-                            const l = Math.floor(Math.random() * (75 - 50 + 1) + 50);
-                            $(this).css('background-color', 'hsl(' + h + ', ' + s + '%, ' + l + '%)');
-                        });
-                    });
+                    setColdColor(boxes, eventType);
                     break;
                 case 'rainbow':
-                    boxes.each(function (i) {
-                        $(this).on(eventType, function () {
-                            //logic formula to generate a random number for rainbow
-                            const red = Math.floor(Math.random() * 256);
-                            const green = Math.floor(Math.random() * 256);
-                            const blue = Math.floor(Math.random() * 256);
-                            $(this).css('background-color', 'rgb(' + red + ', ' + green + ', ' + blue + ')');
-                        });
-                    });
+                    setRainbowColor(boxes, eventType);
                     break;
                 case 'fade':
-                    boxes.each(function (i) {
-                        $(this).on(eventType, function () {
-                            let box = boxes[i]; // Access the DOM element itself
-                            let backgroundColor = box.style.backgroundColor;
-                            if (backgroundColor.startsWith('rgb')) {
-                                $(this).css('background-color', 'hsl(0, 0%, 100%)');
-                            } else {
-                                // If the box has a background color, gradually add 10% black to it
-
-                                let h = parseInt(colorComponents[0]);
-                                let s = parseInt(colorComponents[1]);
-                                let l = parseInt(colorComponents[2]) - 10;
-                                $(box).css('background-color', 'hsl(' + h + ', ' + s + '%, ' + l + '%)');
-                            }
-                        });
-                    });
-
-
-
+                    fadeBoxes(boxes, eventType);
                     break;
                 case 'erase':
                     // Set background color to default
                     break;
                 default:
-                    //add event listener on input change for customColor
-                    customColor.addEventListener('input', event => {
-                        // Get the chosen color
-                        const chosenColor = event.target.value;
-
-                        // Get all the .boxes elements
-                        const boxes = grid.querySelectorAll('div');
-
-                        // Set the background color of the .boxes elements to the chosen color
-                        boxes.forEach(box => {
-                            box.addEventListener(eventType, () => {
-                                // Set the background color of the .boxes element to the chosen color
-                                box.style.backgroundColor = chosenColor;
-                            });
-                        });
-                    });
+                    setCustomColor(boxes, eventType);
                     break;
             }
         });
     });
 }
 
+
+//function to change boxes to warm colors
+function setWarmColor(boxes, eventType) {
+    boxes.each(function (i) {
+        $(this).on(eventType, function () {
+            const h = Math.random() * 60 // to generate colors from 0 - 60 degrees inclusive (red-yellow)
+            $(this).css('background-color', 'hsl(' + Math.random() * 60 + ', 100%, 50%)');
+        });
+    });
+}
+
+
+//function to change boxes to cold colors
+function setColdColor(boxes, eventType) {
+    boxes.each(function (i) {
+        $(this).on(eventType, function () {
+            const h = 210;
+            const s = Math.max(70, Math.floor(Math.random() * 100));
+            const l = Math.floor(Math.random() * (75 - 50 + 1) + 50);
+            $(this).css('background-color', 'hsl(' + h + ', ' + s + '%, ' + l + '%)');
+        });
+    });
+}
+
+
+//function for rainbow colors
+function setRainbowColor(boxes, eventType) {
+    boxes.each(function (i) {
+        $(this).on(eventType, function () {
+            //logic formula to generate a random number for rainbow
+            const red = Math.floor(Math.random() * 256);
+            const green = Math.floor(Math.random() * 256);
+            const blue = Math.floor(Math.random() * 256);
+            $(this).css('background-color', 'rgb(' + red + ', ' + green + ', ' + blue + ')');
+        });
+    });
+}
+
+function fadeBoxes(boxes, eventType) {
+    boxes.each(function (i) {
+        $(this).on(eventType, function () {
+            let box = boxes[i]; // Access the DOM element itself
+            let currentOpacity = $(box).css('opacity');
+            if (currentOpacity < 1) {
+                // If the box is not already fully opaque, gradually add 10% black to it
+                $(box).css('opacity', currentOpacity + 0.1);
+            }
+        });
+    });
+}
+
+
+//function for custom color
+function setCustomColor(boxes, eventType) {
+    //add event listener on input change for customColor
+    customColor.addEventListener('input', event => {
+        // Get the chosen color
+        const chosenColor = event.target.value;
+
+        // Get all the .boxes elements
+        const boxes = grid.querySelectorAll('div');
+
+        // Set the background color of the .boxes elements to the chosen color
+        boxes.forEach(box => {
+            box.addEventListener(eventType, () => {
+                // Set the background color of the .boxes element to the chosen color
+                box.style.backgroundColor = chosenColor;
+            });
+        });
+    });
+}
