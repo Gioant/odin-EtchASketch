@@ -165,18 +165,47 @@ function setRainbowColor(boxes, eventType) {
     });
 }
 
+
 function fadeBoxes(boxes, eventType) {
     boxes.each(function (i) {
         $(this).on(eventType, function () {
-            let box = boxes[i]; // Access the DOM element itself
-            let currentOpacity = $(box).css('opacity');
-            if (currentOpacity < 1) {
-                // If the box is not already fully opaque, gradually add 10% black to it
-                $(box).css('opacity', currentOpacity + 0.1);
+
+            let box = boxes[i];
+
+            let backgroundColor = getComputedStyle(box).getPropertyValue('background-color');
+
+            // Extract the RGB values from the background color string
+            let colorArray = backgroundColor.slice(4, -1).split(',');
+
+            // Convert the RGB values from strings to numbers
+            for (let i = 0; i < colorArray.length; i++) {
+                colorArray[i] = parseInt(colorArray[i]);
             }
+
+            // Check if the background color is already black
+            let isBlack = colorArray.every(c => c === 0);
+            if (!isBlack) {
+                // Gradually darken the background color by subtracting 10% (25.5) from each element
+                for (let i = 0; i < colorArray.length; i++) {
+                    if (colorArray[i] > 25.5) {
+                        colorArray[i] -= 25.5;
+                    } else {
+                        colorArray[i] = 0;
+                    }
+                }
+            }
+
+            // Join the array elements into a single string
+            let colorString = 'rgb(' + colorArray.join(',') + ')';
+
+            // Set the background color of the element
+            box.style.backgroundColor = colorString;
+
         });
     });
 }
+
+
 
 
 //function for custom color
