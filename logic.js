@@ -1,5 +1,8 @@
 //get necessary elements from page
 const grid = document.getElementById("canvas");
+//get all the boxes
+const boxes = grid.querySelectorAll(".boxes");
+
 const slider = document.getElementById("slider");
 const p = document.getElementById("value");
 const body = document.querySelector("body");
@@ -7,16 +10,21 @@ const body = document.querySelector("body");
 //buttons
 const btnHover = document.getElementById("btn_hover");
 const btnClick = document.getElementById("btn_click");
-// const warmBtn = document.getElementById("warm");
-// const coldBtn = document.getElementById("cold");
-// const rainbowBtn = document.getElementById("rainbow");
-// const fadeBtn = document.getElementById("fade");
+
 const customColor = document.getElementById("custom");
-// const clearBtn = document.getElementById("clear");
+const clearBtn = document.getElementById("clear");
 
-//get all the boxes
-const boxes = grid.querySelectorAll(".boxes");
 
+clearBtn.addEventListener("click", clearEverything);
+
+// function to clear & reset
+function clearEverything() {
+    const boxes = $('.boxes');
+    boxes.each(function (i) {
+        let box = boxes[i];
+        box.style.backgroundColor = '#FFFFFF';
+    });
+}
 //call function to create grid initially
 startingGrid();
 
@@ -49,7 +57,7 @@ btnClick.addEventListener('click', () => {
     btnClick.classList.add("active");
     btnClick.style.border = '3px solid greenyellow';
     btnClick.style.borderRadius = '8px';
-    setColorEvent('click');
+    setColorEvent('mousedown');
 });
 
 
@@ -115,9 +123,6 @@ function setColorEvent(eventType) {
                     break;
                 case 'fade':
                     fadeBoxes(boxes, eventType);
-                    break;
-                case 'erase':
-                    // Set background color to default
                     break;
                 default:
                     setCustomColor(boxes, eventType);
@@ -209,7 +214,6 @@ function fadeBoxes(boxes, eventType) {
         });
     });
 }
-
 
 
 
