@@ -1,7 +1,7 @@
 //get necessary elements from page
 const grid = document.getElementById("canvas");
 //get all the boxes
-const boxes = grid.querySelectorAll(".boxes");
+let boxes = grid.querySelectorAll(".boxes");
 
 const slider = document.getElementById("slider");
 const p = document.getElementById("value");
@@ -15,16 +15,9 @@ const customColor = document.getElementById("custom");
 const clearBtn = document.getElementById("clear");
 
 
-clearBtn.addEventListener("click", clearEverything);
+//creating global variable for custom color
+let chosenColor = '';
 
-// function to clear & reset
-function clearEverything() {
-    const boxes = $('.boxes');
-    boxes.each(function (i) {
-        let box = boxes[i];
-        box.style.backgroundColor = '#FFFFFF';
-    });
-}
 //call function to create grid initially
 startingGrid();
 
@@ -60,7 +53,10 @@ btnClick.addEventListener('click', () => {
     setColorEvent('mousedown');
 });
 
-
+customColor.addEventListener('input', event => {
+    // Get the chosen color
+    chosenColor = event.target.value;
+});
 
 //starting grid
 function startingGrid() {
@@ -82,6 +78,7 @@ function createGrid(value) {
         cell.className = "boxes";
         grid.appendChild(cell);
     }
+
 }
 
 
@@ -170,7 +167,7 @@ function setRainbowColor(boxes, eventType) {
     });
 }
 
-
+//function to darken grid items by 10%
 function fadeBoxes(boxes, eventType) {
     boxes.each(function (i) {
         $(this).on(eventType, function () {
@@ -216,23 +213,26 @@ function fadeBoxes(boxes, eventType) {
 }
 
 
+//add event listener for clear button
+clearBtn.addEventListener("click", clearEverything);
 
-//function for custom color
+// function to clear & reset
+function clearEverything() {
+    const boxes = $('.boxes');
+    boxes.each(function (i) {
+        let box = boxes[i];
+        box.style.backgroundColor = '#FFFFFF';
+    });
+}
+
+/// Function to set the custom color
 function setCustomColor(boxes, eventType) {
-    //add event listener on input change for customColor
-    customColor.addEventListener('input', event => {
-        // Get the chosen color
-        const chosenColor = event.target.value;
+    // Get all the boxes
+    boxes = $('.boxes');
 
-        // Get all the .boxes elements
-        const boxes = grid.querySelectorAll('div');
-
-        // Set the background color of the .boxes elements to the chosen color
-        boxes.forEach(box => {
-            box.addEventListener(eventType, () => {
-                // Set the background color of the .boxes element to the chosen color
-                box.style.backgroundColor = chosenColor;
-            });
-        });
+    // Add event listener to each box
+    boxes.on(eventType, function () {
+        // Set the background color of the current box to the chosen color
+        $(this).css('background-color', chosenColor);
     });
 }
