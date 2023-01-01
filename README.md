@@ -1,3 +1,7 @@
-Etch-A-Sketch
+# Etch-a-Sketch Game
 
-To further practice my DOM manipulation skills using JS.
+A simple Etch-a-Sketch game created with HTML, CSS, and JavaScript to practice DOM manipulation skills.
+
+## Live Demo
+
+[Click here](https://gioant.github.io/odin-EtchASketch/) live demo.
