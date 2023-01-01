@@ -96,6 +96,16 @@ h4 {
     background-color: #F60909;
 }
 
+#space1 {
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+}
+
+.space:last-child {
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+
 #sketchPad {
     display: flex;
     flex-direction: column;
