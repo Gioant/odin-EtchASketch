@@ -172,15 +172,18 @@ function fadeBoxes(boxes, eventType) {
 
             let box = boxes[i];
 
+            //get background color property from box element
             let backgroundColor = getComputedStyle(box).getPropertyValue('background-color');
 
             // Extract the RGB values from the background color string
             let colorArray = backgroundColor.slice(4, -1).split(',');
 
+
             // Convert the RGB values from strings to numbers
             for (let i = 0; i < colorArray.length; i++) {
                 colorArray[i] = parseInt(colorArray[i]);
             }
+
 
             // Check if the background color is already black
             let isBlack = colorArray.every(c => c === 0);
@@ -197,6 +200,8 @@ function fadeBoxes(boxes, eventType) {
 
             // Join the array elements into a single string
             let colorString = 'rgb(' + colorArray.join(',') + ')';
+
+
 
             // Set the background color of the element
             box.style.backgroundColor = colorString;
