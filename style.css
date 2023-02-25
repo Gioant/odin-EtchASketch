@@ -23,23 +23,22 @@ body {
     margin-top: 75px;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 
 h1 {
     margin: 0;
-    padding-top: 15px !important;
-    padding-bottom: 35px !important;
+    padding-top: 15px;
     font-family: 'Akronim', cursive;
     font-size: 70px;
     color: #E9C64B;
-    padding: 10px;
     background-color: #F60909;
 }
 
 
 #panel {
-    margin-top: 123px;
+    /* margin-top: 123px; */
     width: 250px;
     display: flex;
     flex-direction: column;
@@ -93,6 +92,7 @@ h4 {
 
 .space {
     width: 120px;
+    padding-top: 96vh;
     background-color: #F60909;
 }
 
@@ -117,7 +117,6 @@ h4 {
 #canvas {
     display: grid;
     height: 700px;
-    /* width: 1020px; */
     border: 2px solid #F8F1F1;
 }
 
@@ -130,6 +129,6 @@ h4 {
 
 
 #knobs {
-    height: 20%;
+    height: 10.65vh;
     background-color: #F60909;
 }
